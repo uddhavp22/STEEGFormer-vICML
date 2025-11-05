@@ -14,6 +14,22 @@ Marc Van Hulle ([marc.vanhulle@kuleuven.be](mailto:marc.vanhulle@kuleuven.be))
 
 All rights reserved.
 
+## Citation
+
+If you use our model or find it useful, please cite the following paper:
+
+> *Currently under double-blind review; the citation will be updated as soon as it is published. In the meantime, you are welcome to read our previous version on* [*OpenReview*](https://openreview.net/forum?id=V5Zn0VVvBE).
+
+```bibtex
+@misc{
+  yang2025learning,
+  title={Learning Robust {EEG} Representations with a Large Spatiotemporal Transformer as a Foundation Model},
+  author={Liuyin Yang and Marc M. Van Hulle},
+  year={2025},
+  url={https://openreview.net/forum?id=V5Zn0VVvBE}
+}
+```
+
 ---
 
 ## 1. Environment
