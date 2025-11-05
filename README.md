@@ -63,3 +63,10 @@ The list of available/pretrained channels can be found in:
 
 ```text
 pretrain/senloc_file
+
+## 3. Quick Start
+
+A Jupyter notebook containing a minimal tutorial on how to use the model can be found in:
+
+```text
+easy_start/simple_example.ipynb
