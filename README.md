@@ -63,6 +63,7 @@ The list of available/pretrained channels can be found in:
 
 ```text
 pretrain/senloc_file
+```
 
 ## 3. Quick Start
 
