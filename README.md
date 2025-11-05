@@ -1,4 +1,5 @@
 ﻿# ST-EEGFormer
+![ST-EEGFormer benchmark protocols & architecture](assets/graphic_overview.png)
 
 *A fair EEG-BCI benchmark framework and a simple ST-EEGFormer foundation model.*
 
