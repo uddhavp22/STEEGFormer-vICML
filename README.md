@@ -1,11 +1,16 @@
 ﻿# ST-EEGFormer
-![ST-EEGFormer benchmark protocols & architecture](assets/graphic_overview.png)
+<p align="center">
+  <img src="assets/graphic_overview.png" alt="ST-EEGFormer architecture" width="400">
+</p>
 
-*A fair EEG-BCI benchmark framework and a simple ST-EEGFormer foundation model.*
+
+*A fair EEG-BCI benchmark framework and a simple yet powerful ST-EEGFormer foundation model.*
 
 **Authors:**  
 Liuyin Yang ([liuyin.yang@kuleuven.be](mailto:liuyin.yang@kuleuven.be))  
 Qiang Sun ([qiang.sun@kuleuven.be](mailto:qiang.sun@kuleuven.be))
+Ang Li ([ang_lii@outlook.com](mailto:ang_lii@outlook.com))
+Marc Van Hulle ([marc.vanhulle@kuleuven.be](mailto:marc.vanhulle@kuleuven.be))
 
 All rights reserved.
 
