@@ -1,4 +1,7 @@
-# Adapted from the MAE implementation by xxx
+# Codes written by Liuyin Yang (liuyin.yang@kuleuven.be)
+# Adapted from the MAE implementations from META
+# All rights reserved.
+
 # --------------------------------------------------------
 # References:
 # MAE:  https://github.com/facebookresearch/mae

@@ -1,3 +1,8 @@
+# Codes written by Liuyin Yang (liuyin.yang@kuleuven.be)
+# All rights reserved.
+
+# --------------------------------------------------------
+
 from utils.models import EEGNet, EEGTransformer
 from utils import models_vit_eeg
 import torch

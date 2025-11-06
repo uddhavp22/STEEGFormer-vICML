@@ -1,3 +1,14 @@
+# Codes written by Liuyin Yang (liuyin.yang@kuleuven.be)
+# Adapted from the MAE implementations from META
+# All rights reserved.
+
+# --------------------------------------------------------
+# References:
+# MAE:  https://github.com/facebookresearch/mae
+# timm: https://github.com/rwightman/pytorch-image-models/tree/master/timm
+# DeiT: https://github.com/facebookresearch/deit
+# --------------------------------------------------------
+
 import wandb
 import argparse
 from wandb_engine_finetune_eeg import run_phase

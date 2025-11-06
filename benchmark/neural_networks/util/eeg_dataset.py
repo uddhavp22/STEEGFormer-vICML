@@ -1,3 +1,8 @@
+# Codes written by Liuyin Yang (liuyin.yang@kuleuven.be)
+# All rights reserved.
+
+# --------------------------------------------------------
+
 import torch
 import numpy as np
 import pickle

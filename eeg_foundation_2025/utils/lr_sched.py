@@ -1,3 +1,7 @@
+# Codes written by Liuyin Yang (liuyin.yang@kuleuven.be)
+# All rights reserved.
+# --------------------------------------------------------
+
 import math
 
 def adjust_learning_rate(optimizer, epoch, args):

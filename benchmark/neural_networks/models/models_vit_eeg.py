@@ -1,10 +1,10 @@
-# Copyright (c) Meta Platforms, Inc. and affiliates.
+# Codes written by Liuyin Yang (liuyin.yang@kuleuven.be)
+# Adapted from the MAE implementations from META
 # All rights reserved.
 
-# This source code is licensed under the license found in the
-# LICENSE file in the root directory of this source tree.
 # --------------------------------------------------------
 # References:
+# MAE:  https://github.com/facebookresearch/mae
 # timm: https://github.com/rwightman/pytorch-image-models/tree/master/timm
 # DeiT: https://github.com/facebookresearch/deit
 # --------------------------------------------------------

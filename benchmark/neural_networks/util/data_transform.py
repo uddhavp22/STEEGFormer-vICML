@@ -1,3 +1,8 @@
+# Codes written by Liuyin Yang (liuyin.yang@kuleuven.be)
+# All rights reserved.
+
+# --------------------------------------------------------
+
 import numpy as np
 from scipy.signal import resample
 

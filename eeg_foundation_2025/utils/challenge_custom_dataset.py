@@ -1,3 +1,7 @@
+# Codes written by Liuyin Yang (liuyin.yang@kuleuven.be)
+# All rights reserved.
+# --------------------------------------------------------
+
 import torch
 from torch.utils.data import Dataset, get_worker_info
 import h5py

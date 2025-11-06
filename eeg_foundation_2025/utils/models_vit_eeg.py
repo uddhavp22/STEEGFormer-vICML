@@ -1,4 +1,5 @@
 # Codes written by Liuyin Yang (liuyin.yang@kuleuven.be)
+# Adapted from the MAE implementations from META
 # All rights reserved.
 
 # --------------------------------------------------------
