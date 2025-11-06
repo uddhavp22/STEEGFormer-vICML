@@ -77,3 +77,9 @@ python eeg_foundation_2025/ddp_finetune_eeg.py \
 You will need the following pre-trained model to reproduce this experiment:
 
 [ST-EEGFormer-large release-HBN](https://github.com/LiuyinYang1101/STEEGFormer/releases/tag/ST-EEGFormer-largeV2).
+
+Below is the corresponding learning curve.
+
+<p align="center">
+  <img src="learning_curves/lora_avg.png" alt="Learning Curve" width="300">
+</p>
