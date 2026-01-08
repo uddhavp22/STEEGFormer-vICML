@@ -104,7 +104,7 @@ alzheimer:
     - Pz
 
 bci_iv2a:
-  data_dir: /lustre1/project/stg_00160/benchmark_preprocessed_datasets/bci_iv2a
+  data_dir: /teamspace/studios/this_studio/STEEGFormer-vICML/data/bci_iv2a
   task_time: 4
   fold: 1
   fs: 256
