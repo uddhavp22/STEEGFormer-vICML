@@ -1,0 +1,81 @@
+# Claude Configuration for STEEGFormer-vICML
+
+## Project Context
+This is an EEG (electroencephalography) signal processing research codebase that uses Vision Transformers adapted for EEG data. The project includes:
+- Custom VisionTransformer implementations for EEG data
+- Multiple pretrained model support (ViT, LaBraM, EEGPT)
+- Downstream task evaluation with cross-validation
+- WandB integration for experiment tracking
+
+## Code Modification Rules
+
+**CRITICAL: DO NOT modify source code files unless explicitly requested by the user.**
+
+### Protected Files (Read-Only by Default)
+- All `.py` files in `benchmark/neural_networks/`
+- All model files in `benchmark/neural_networks/models/`
+- All utility files in `benchmark/neural_networks/util/`
+- All training/evaluation scripts
+
+### Allowed Modifications (Only When Explicitly Requested)
+- Configuration files (if created)
+- Documentation files
+- Analysis/debugging scripts in separate directories
+- Requirements/dependency files (after user confirmation)
+
+## Key Architectural Points
+
+### VisionTransformer Implementation
+- Located in: `benchmark/neural_networks/models/models_vit_eeg.py`
+- Custom class extends `timm.models.vision_transformer.VisionTransformer`
+- Replaces standard patch embedding with EEG-specific `PatchEmbedEEG`
+- Uses custom positional embeddings: `ChannelPositionalEmbed` and `TemporalPositionalEncoding`
+- Supports global average pooling via `global_pool` parameter
+
+### Model Initialization Flow
+1. `wandb_downstream_evaluation.py:main()` → `main_train()`
+2. `prepare_args_for_phase()` sets phase-specific hyperparameters (train vs finetune)
+3. `get_model()` constructs the model with dropout rates and other params
+4. Model functions like `vit_small_patch16()` pass all kwargs to VisionTransformer
+5. Custom VisionTransformer.__init__() forwards kwargs to parent timm class
+
+### Dependencies
+- **timm**: Requires version >= 0.9.x for `proj_drop_rate` support
+  - Versions < 0.9.x don't have `proj_drop_rate` parameter in VisionTransformer
+  - Version 1.0.x changed optimizer naming: `Nadam` → `NAdam` (capital A)
+  - Current compatible version: 1.0.24
+
+- **PyTorch**: Includes `torch.optim.NAdam` (used as fallback in newer timm)
+
+### Common Issues
+1. **proj_drop_rate error**: Caused by timm < 0.9.x (upgrade to 1.0.x)
+2. **Nadam import error**: Caused by timm API changes (use NAdam or NAdamLegacy)
+3. **Import warnings**: timm.models.layers deprecated → use timm.layers (cosmetic only)
+
+## File Structure
+```
+benchmark/neural_networks/
+├── wandb_downstream_evaluation.py  # Main evaluation script
+├── wandb_engine_finetune_eeg.py    # Training engine
+├── models/
+│   ├── models_vit_eeg.py           # Custom ViT for EEG
+│   ├── labram.py                   # LaBraM model
+│   └── EEGPT.py                    # EEGPT model
+└── util/
+    ├── utils.py                    # General utilities, model creation
+    ├── labram_optim.py             # LaBraM optimizer utilities
+    └── eeg_dataset.py              # EEG data loading
+```
+
+## When to Ask Before Modifying
+- Any changes to model architecture
+- Any changes to training loops
+- Any changes to data preprocessing
+- Dependency version changes
+- Configuration changes that affect experiments
+
+## Preferred Actions
+- Analysis and explanation of code behavior
+- Debugging assistance via inspection and tracing
+- Suggesting fixes without implementing them
+- Creating separate analysis/test scripts in new directories

@@ -1,2 +1,4 @@
 # Data directories - ignore all downloaded datasets
 data/
+__pycache__/
+*.pyc

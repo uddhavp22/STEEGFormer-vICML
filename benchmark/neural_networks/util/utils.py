@@ -527,7 +527,7 @@ def get_model(args):
 
         # load pre-trained model if needed
         if args.vit_pretrained_model_dir:
-            checkpoint = torch.load(args.vit_pretrained_model_dir, map_location='cpu')
+            checkpoint = torch.load(args.vit_pretrained_model_dir, map_location='cpu',weights_only=False)
             print("Load pre-trained checkpoint from: %s" % args.vit_pretrained_model_dir)
             checkpoint_model = checkpoint['model']
             state_dict = model.state_dict()
@@ -830,7 +830,7 @@ def prepared_downstream_task_for_model(args):
         args.model_downstream_task_fs = 200
     elif "vit" in args.model:
         args.model_downstream_task_fs = 128
-        with open("/vsc-hard-mounts/leuven-data/343/vsc34340/new_eeg_mae/senloc_file/sen_chan_idx.pkl", "rb") as f:
+        with open("/teamspace/studios/this_studio/STEEGFormer-vICML/benchmark/neural_networks/senloc_file/sen_chan_idx.pkl", "rb") as f:
             data = pickle.load(f)
             # build a lowercase lookup
             lower_map = {k.lower(): v for k, v in data['channels_mapping'].items()}

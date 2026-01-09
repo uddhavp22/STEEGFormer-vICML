@@ -26,11 +26,11 @@ from util.utils import get_downstream_task_info, get_model, split_recordings_for
 def get_args_parser():
     parser = argparse.ArgumentParser('MAE fine-tuning for EEG classification', add_help=False)
     # Wandb parameters
-    parser.add_argument('--wandb_project', default='debug', type=str,
+    parser.add_argument('--wandb_project', default="eeg-bench-default", type=str,
                         help='Name of the Wandb project')
-    parser.add_argument('--wandb_entity', default='liuyin_yang-ku-leuven', type=str,
+    parser.add_argument('--wandb_entity', default='saarangp-ucla', type=str,
                         help='Wandb account')
-    parser.add_argument('--wandb_log_dir', default='/lustre1/project/stg_00160/wandb_log_bci_iv2a', type=str,
+    parser.add_argument('--wandb_log_dir', default='/saarangp-ucla/wandb_log_bci_iv2a', type=str,
                         help='Wandb log directory')
     parser.add_argument('--wandb_log_every', type=int, default=5,
                         help="only log to W&B every N epochs")
@@ -42,7 +42,7 @@ def get_args_parser():
                         help='data transformation')
     parser.add_argument('--pretrained_model_dir', default='', type=str,
                         help='pretrained model path')
-    parser.add_argument('--vit_pretrained_model_dir', default='/lustre1/project/stg_00160/new_eeg_mae/experiment3_small/checkpoint-336.pth', type=str,
+    parser.add_argument('--vit_pretrained_model_dir', default='/teamspace/studios/this_studio/STEEGFormer-VICML_chkpts/checkpoint-300.pth', type=str,
                         help='vit pretrained model path')
     parser.add_argument('--labram_pretrained_model_dir', default='/vsc-hard-mounts/leuven-data/343/vsc34340/LaBraM-main/checkpoints/labram-base.pth', type=str,
                         help='labram pretrained model path')
@@ -64,7 +64,7 @@ def get_args_parser():
                         help='Drop path rate (default: 0.1)')
     parser.add_argument('--attn_drop_rate', type=float, default=0.1,
                         help='Attention drop rate (default: 0.1)')
-    parser.add_argument('--proj_drop_rate', type=float, default=0.1,
+    parser.add_argument('--proj_drop_rate', type=float, default=None,
                         help='MLP drop rate (default: 0.1)')
     parser.add_argument('--train_drop_rate', type=float, default=0.1,
                         help='head drop rate in the training stage')
@@ -129,9 +129,9 @@ def get_args_parser():
                         help='Mixup probability (default: 0.9)')
     
     # Exp parameters
-    parser.add_argument('--dataset_yaml', default="/vsc-hard-mounts/leuven-data/343/vsc34340/new_eeg_mae/util/dataset_specs.yaml", type=str,
+    parser.add_argument('--dataset_yaml', default="./util/dataset_specs.yaml", type=str,
                         help='dataset yaml with dataset specs')
-    parser.add_argument('--downstream_task_yaml', default="/vsc-hard-mounts/leuven-data/343/vsc34340/new_eeg_mae/util/downstream_task_specs.yaml", type=str,
+    parser.add_argument('--downstream_task_yaml', default="./util/downstream_task_specs.yaml", type=str,
                         help='dataset yaml with dataset specs')
     parser.add_argument('--downstream_task', default="finger_classification", type=str,
                         help='which downstream task to benchmark')
