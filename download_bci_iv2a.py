@@ -54,20 +54,16 @@ def download_and_preprocess_bci_iv2a():
 
             # Split into train and test based on session
             # Session 'session_T' is training, 'session_E' is evaluation/test
-            train_mask = metadata['session'] == 'session_T'
-            test_mask = metadata['session'] == 'session_E'
+            train_mask = metadata['session'] == '0train'
+            test_mask = metadata['session'] == '1test'
 
             trainX = X[train_mask]
             trainY = labels[train_mask]
             testX = X[test_mask]
             testY = labels[test_mask]
 
-            # Convert labels to 0-indexed (MOABB might use different encoding)
-            # Map: left_hand=0, right_hand=1, feet=2, tongue=3
-            unique_labels = np.unique(np.concatenate([trainY, testY]))
-            label_map = {label: idx for idx, label in enumerate(sorted(unique_labels))}
-            trainY = np.array([label_map[label] for label in trainY])
-            testY = np.array([label_map[label] for label in testY])
+            # Keep labels as strings (left_hand, right_hand, feet, tongue)
+            # The downstream_task_specs.yaml expects string keys, not integers
 
             # Prepare data dict
             subject_data = {
